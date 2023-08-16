@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "/vidars-valgomat/static/css/main.073c9b0a.css",
-    "main.js": "/vidars-valgomat/static/js/main.95b76590.js",
-    "static/js/787.a743ac6e.chunk.js": "/vidars-valgomat/static/js/787.a743ac6e.chunk.js",
-    "static/media/logo.svg": "/vidars-valgomat/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/vidars-valgomat/index.html",
-    "main.073c9b0a.css.map": "/vidars-valgomat/static/css/main.073c9b0a.css.map",
-    "main.95b76590.js.map": "/vidars-valgomat/static/js/main.95b76590.js.map",
-    "787.a743ac6e.chunk.js.map": "/vidars-valgomat/static/js/787.a743ac6e.chunk.js.map"
+    "main.css": "/valgomat5000/static/css/main.ff01eaa0.css",
+    "main.js": "/valgomat5000/static/js/main.8c10df1d.js",
+    "static/js/787.a743ac6e.chunk.js": "/valgomat5000/static/js/787.a743ac6e.chunk.js",
+    "index.html": "/valgomat5000/index.html",
+    "main.ff01eaa0.css.map": "/valgomat5000/static/css/main.ff01eaa0.css.map",
+    "main.8c10df1d.js.map": "/valgomat5000/static/js/main.8c10df1d.js.map",
+    "787.a743ac6e.chunk.js.map": "/valgomat5000/static/js/787.a743ac6e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.95b76590.js"
+    "static/css/main.ff01eaa0.css",
+    "static/js/main.8c10df1d.js"
   ]
 }
