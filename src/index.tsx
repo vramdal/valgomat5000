@@ -12,38 +12,41 @@ import Konklusjon from "./routes/konklusjon";
 import { createBrowserRouter, RouteObject, RouterProvider } from "react-router-dom";
 import { State } from "./types";
 import '@picocss/pico/css/pico.min.css';
+import Kommune from "./routes/kommune";
 
 export type RouteWithRequirement =
   RouteObject
-  & { path: string, requirements?: (values: State) => boolean };
+  & { path: string, skipIf?: (values: State) => boolean };
 export const routes: Array<RouteWithRequirement> = [
   {
     path: "/",
     element: <Root/>,
   },
   {
-    path: "/1",
+    path: "/alder",
     element: <Alder/>,
   },
   {
-    path: "/2",
+    path: "/kommune",
+    element: <Kommune/>,
+  },
+  {
+    path: "/2019",
     element: <ForrigeValg/>,
   },
   {
-    path: "/3",
+    path: "/fornoyd",
     element: <Fornoyd/>,
-    requirements: (values: State) => values.forrigeValg !== "Stemte ikke ved forrige valg"
-      && values.forrigeValg !== undefined,
+    skipIf: (values: State) => values.forrigeValg === "Stemte ikke ved forrige valg",
   },
   {
-    path: "/4",
+    path: "/2023",
     element: <MestEnig/>,
-    requirements: (values: State) => values.fornoyd === "Nei",
+    skipIf: (values: State) => values.fornoyd === "Ja",
   },
   {
-    path: "/5",
+    path: "/konklusjon",
     element: <Konklusjon/>,
-    requirements: (values: State) => !!values.nesteValg || values.fornoyd === "Ja",
   }
 ];
 

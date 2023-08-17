@@ -34,18 +34,19 @@ const useStepNavigationProvider = () => {
   const matches = useMatches();
   const formContext = useContext(FormContext);
 
-  const currentRouteIndex = routes.findIndex((route) => route.path === matches[0].pathname);
 
   // noinspection UnnecessaryLocalVariableJS
   const stepNavigation = () => {
+    const currentRouteIndex = routes.findIndex((route) => route.path === matches[0].pathname);
     const isRouteValid = (route: RouteWithRequirement) => {
-      return !route.requirements || route.requirements(formContext.getValues());
+      return !route.skipIf || !route.skipIf(formContext.getValues());
     };
     const validNextRoutes = routes.slice(currentRouteIndex + 1).filter(isRouteValid);
-    const validPreviousRoutes = routes.slice(0, currentRouteIndex - 1).filter(isRouteValid).reverse();
+    const validPreviousRoutes = routes.slice(0, currentRouteIndex - 1).filter(isRouteValid);
 
     const nextRoute = validNextRoutes.length > 0 && validNextRoutes[0];
-    const previousRoute = validPreviousRoutes.length > 0 && validPreviousRoutes[0];
+    const previousRoute = validPreviousRoutes.length > 0 && validPreviousRoutes[validPreviousRoutes.length - 1];
+    const isFinished = !nextRoute;
 
     console.log("matches", matches);
 
@@ -53,6 +54,8 @@ const useStepNavigationProvider = () => {
     return {
       goNext: nextRoute && (() => navigate(nextRoute.path)),
       goBack: previousRoute && (() => navigate(previousRoute.path)),
+      restart: () => navigate(routes[0].path),
+      isFinished,
       goHome: () => navigate('/'),
     }
   }
@@ -74,10 +77,11 @@ export const Step = ({children}: StepProps & { children: React.ReactNode }) => {
   return <form onSubmit={form.handleSubmit(onSubmit)/*props.form.handleSubmit(onSubmit)*/}>
     {children}
     <nav className={'step-buttons'}>
-      {stepNavigation.goBack &&
+      {!stepNavigation.isFinished && stepNavigation.goBack &&
           <button type={"button"} className={'back-button'}
                   onClick={() => navigate(-1)}>Tilbake</button>}
-      <button type="submit">Videre &gt;</button>
+      {stepNavigation.goNext && <button type="submit">Videre &gt;</button>}
+      {stepNavigation.isFinished && <button type="submit" onClick={stepNavigation.restart}>Start på nytt</button>}
     </nav>
     {/*{JSON.stringify(form.getValues())}*/}
   </form>
