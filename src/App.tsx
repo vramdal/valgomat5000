@@ -1,4 +1,11 @@
-import React, { Context, Dispatch, ReactNode, SetStateAction, useContext } from 'react';
+import React, {
+  Context,
+  CSSProperties,
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useContext
+} from 'react';
 import './App.css';
 import { State, StepProps } from "./types";
 import { useForm } from "react-hook-form";
@@ -59,7 +66,7 @@ const useStepNavigationProvider = () => {
   }
   return stepNavigation;
 };
-export const Step = ({children}: StepProps & { children: React.ReactNode }) => {
+export const Step = ({children, style}: StepProps & { children: React.ReactNode } & {style?: CSSProperties}) => {
   const stepNavigationProvider = useStepNavigationProvider();
 
   // const [getState, setState] = useContext(DataStateContext);
@@ -72,7 +79,7 @@ export const Step = ({children}: StepProps & { children: React.ReactNode }) => {
     stepNavigation.goNext && stepNavigation.goNext();
   };
   const stepNavigation = stepNavigationProvider();
-  return <form onSubmit={form.handleSubmit(onSubmit)/*props.form.handleSubmit(onSubmit)*/}>
+  return <form style={style} onSubmit={form.handleSubmit(onSubmit)/*props.form.handleSubmit(onSubmit)*/}>
     {children}
     <nav className={'step-buttons'}>
       {!stepNavigation.isFinished && stepNavigation.goBack &&

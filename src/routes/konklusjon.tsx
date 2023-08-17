@@ -15,6 +15,7 @@ const Konklusjon = () => {
           <h1>{form.getValues('nesteValg')}</h1>
           <h2>siden det er dem du er mest enig med</h2>
       </>}
+      <h2>Godt valg!</h2>
     </Step>
   );
 };

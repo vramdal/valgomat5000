@@ -69,3 +69,7 @@ fieldset.choices {
     flex-direction: column;
     width: auto;
 }
+
+h1, h2, h3, p {
+    background: rgba(10, 10, 10, .5);
+}
