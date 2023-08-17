@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/valgomat5000/static/css/main.ff01eaa0.css",
-    "main.js": "/valgomat5000/static/js/main.8e91447c.js",
+    "main.js": "/valgomat5000/static/js/main.e86dadfb.js",
     "static/js/787.f1400c02.chunk.js": "/valgomat5000/static/js/787.f1400c02.chunk.js",
     "index.html": "/valgomat5000/index.html",
     "main.ff01eaa0.css.map": "/valgomat5000/static/css/main.ff01eaa0.css.map",
-    "main.8e91447c.js.map": "/valgomat5000/static/js/main.8e91447c.js.map",
+    "main.e86dadfb.js.map": "/valgomat5000/static/js/main.e86dadfb.js.map",
     "787.f1400c02.chunk.js.map": "/valgomat5000/static/js/787.f1400c02.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ff01eaa0.css",
-    "static/js/main.8e91447c.js"
+    "static/js/main.e86dadfb.js"
   ]
 }
