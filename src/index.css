@@ -12,6 +12,23 @@ code {
     monospace;
 }
 
+html, body, #root, .App, form {
+    margin: 0;
+    height: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+fieldset {
+    flex: 1;
+    overflow: auto;
+    min-height: 200px;
+}
+
+
 label {
     display: block;
 }
@@ -35,6 +52,12 @@ button {
 form {
     display: flex;
     flex-direction: column;
+    padding: 25px;
+}
+
+fieldset {
+    flex: 1 1 auto;
+    overflow: scroll;
 }
 
 fieldset.choices {

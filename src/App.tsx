@@ -19,9 +19,7 @@ const App = ({children}: { children: ReactNode }) => {
     <div className="App">
       <DataStateContext.Provider value={[() => dataState, setDataState]}>
         <FormContext.Provider value={form}>
-          <main>
-            {children}
-          </main>
+          {children}
         </FormContext.Provider>
       </DataStateContext.Provider>
     </div>
@@ -81,7 +79,8 @@ export const Step = ({children}: StepProps & { children: React.ReactNode }) => {
           <button type={"button"} className={'back-button'}
                   onClick={() => navigate(-1)}>Tilbake</button>}
       {stepNavigation.goNext && <button type="submit">Videre &gt;</button>}
-      {stepNavigation.isFinished && <button type="submit" onClick={stepNavigation.restart}>Start på nytt</button>}
+      {stepNavigation.isFinished &&
+          <button type="submit" onClick={stepNavigation.restart}>Start på nytt</button>}
     </nav>
     {/*{JSON.stringify(form.getValues())}*/}
   </form>
