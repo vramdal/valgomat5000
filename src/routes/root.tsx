@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { FormContext, Step } from "../App";
 
 const Root = () => {
@@ -13,6 +13,7 @@ const Root = () => {
           <label><input type={"radio"} required={true} {...(form.register('klar', {validate: (value) => value === "Ja"}))} value={'Ja'}/>Ja</label>
           <label><input type={"radio"} required={true} {...(form.register('klar', {validate: (value) => value === "Ja"}))} value={'Nei'}/>Nei</label>
         </fieldset>
+        <aside>Ingen data sendes noe sted</aside>
       </Step>
     </>
   );
