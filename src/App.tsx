@@ -42,7 +42,7 @@ const useStepNavigationProvider = () => {
       return !route.skipIf || !route.skipIf(formContext.getValues());
     };
     const validNextRoutes = routes.slice(currentRouteIndex + 1).filter(isRouteValid);
-    const validPreviousRoutes = routes.slice(0, currentRouteIndex - 1).filter(isRouteValid);
+    const validPreviousRoutes = routes.slice(0, Math.max(currentRouteIndex, 0)).filter(isRouteValid);
 
     const nextRoute = validNextRoutes.length > 0 && validNextRoutes[0];
     const previousRoute = validPreviousRoutes.length > 0 && validPreviousRoutes[validPreviousRoutes.length - 1];
