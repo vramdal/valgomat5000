@@ -103,7 +103,6 @@ const kommuner = [
   "Hemnes",
   "Hemsedal",
   "Herøy",
-  "Herøy",
   "Hitra",
   "Hjartdal",
   "Hjelmeland",

@@ -66,7 +66,11 @@ const useStepNavigationProvider = () => {
   }
   return stepNavigation;
 };
-export const Step = ({children, style}: StepProps & { children: React.ReactNode } & {style?: CSSProperties}) => {
+export const Step = ({
+                       children,
+                       style,
+                       forwardButtonLabel
+                     }: StepProps & { children: React.ReactNode } & { style?: CSSProperties }) => {
   const stepNavigationProvider = useStepNavigationProvider();
 
   // const [getState, setState] = useContext(DataStateContext);
@@ -79,13 +83,15 @@ export const Step = ({children, style}: StepProps & { children: React.ReactNode 
     stepNavigation.goNext && stepNavigation.goNext();
   };
   const stepNavigation = stepNavigationProvider();
-  return <form style={style} onSubmit={form.handleSubmit(onSubmit)/*props.form.handleSubmit(onSubmit)*/}>
+  return <form style={style}
+               onSubmit={form.handleSubmit(onSubmit)/*props.form.handleSubmit(onSubmit)*/}>
     {children}
     <nav className={'step-buttons'}>
       {!stepNavigation.isFinished && stepNavigation.goBack &&
           <button type={"button"} className={'back-button'}
                   onClick={() => navigate(-1)}>Tilbake</button>}
-      {stepNavigation.goNext && <button type="submit">Videre &gt;</button>}
+      {stepNavigation.goNext &&
+          <button type="submit">{forwardButtonLabel || 'Videre >'}</button>}
       {stepNavigation.isFinished &&
           <button type="submit" onClick={stepNavigation.restart}>Start på nytt</button>}
     </nav>

@@ -1,5 +1,4 @@
 export type State = {
-  klar?: "Ja" | "Nei";
   alder?: number;
   forrigeValg?: string;
   kommune?: string;
@@ -8,5 +7,5 @@ export type State = {
 }
 
 export type StepProps = {
-
+  forwardButtonLabel?: string;
 }
